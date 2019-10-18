@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {shallowEqual, useDispatch, useSelector} from 'react-redux'
+import * as actions from './store/actions'
+import {AppState} from './store/ConfigStore'
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const {counter, lastAction} = useSelector((state: AppState) => state.default, shallowEqual)
+	const dispatch = useDispatch()
+	
+	const increment = () => {
+		dispatch(actions.IncrementAction())
+	}
+	
+	const decrement = () => {
+		dispatch(actions.DecrementAction())
+	}
+	
+	const reset = () => {
+		dispatch(actions.ResetAction())
+	}
+	
+	return (
+		<div style={{padding: '50px'}}>
+			<h2>Sample app for testing redux-observables using typescript</h2>
+			<h3>Last Action: {lastAction}</h3>
+			<h3>Counter: {counter}</h3>
+			<button onClick={increment}>Increment</button>
+			<button onClick={decrement}>Decrement</button>
+			<button onClick={reset}>Reset</button>
+		</div>
+	);
 }
 
 export default App;
