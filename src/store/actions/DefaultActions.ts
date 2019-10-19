@@ -4,6 +4,7 @@ import {
 	IncrementActionType,
 	LastActionType,
 	ResetActionType,
+	setResetActionType,
 } from '../types/ActionTypes'
 
 export const IncrementAction = (): IncrementActionType => {
@@ -21,6 +22,12 @@ export const DecrementAction = (): DecrementActionType => {
 export const ResetAction = (): ResetActionType => {
 	return  {
 		type: ActionTypeEnums.RESET
+	}
+}
+
+export const setResetAction = (): setResetActionType => {
+	return  {
+		type: ActionTypeEnums.SET_RESET
 	}
 }
 

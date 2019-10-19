@@ -2,5 +2,6 @@ export {
 	ResetAction,
 	DecrementAction,
 	IncrementAction,
-	LastActionDone
+	LastActionDone,
+	setResetAction
 } from './DefaultActions'

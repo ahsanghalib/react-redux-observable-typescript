@@ -16,13 +16,13 @@ const App: React.FC = () => {
 	}
 	
 	const reset = () => {
-		dispatch(actions.ResetAction())
+		dispatch(actions.setResetAction())
 	}
 	
 	return (
 		<div style={{padding: '50px'}}>
 			<h2>Sample app for testing redux-observables using typescript</h2>
-			<h3>Last Action: {lastAction}</h3>
+			<h3>Last Action: {lastAction} </h3>
 			<h3>Counter: {counter}</h3>
 			<button onClick={increment}>Increment</button>
 			<button onClick={decrement}>Decrement</button>
